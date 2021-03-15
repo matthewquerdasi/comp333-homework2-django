@@ -1,5 +1,5 @@
-<h1>Registration</h1>
-<form action="{% url 'user_create'%}">
+<h1>Register</h1>
+<form action="{% url 'user_create' %}" method="post">
     {% csrf_token %}
     {{ form.as_p }}
     <button class = "button" type = "submit">Register</button>
