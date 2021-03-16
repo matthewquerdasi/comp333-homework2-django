@@ -23,5 +23,3 @@ class Ratings(models.Model):
         return_string = str(self.song) + " - " + str(self.username)
         return return_string
     
-    class Meta: 
-        unique_together = ('username', 'song')

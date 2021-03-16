@@ -5,7 +5,7 @@ from musicdb.forms import UserForm, RetrieveRatingsForm
 from musicdb.models import Users, Ratings
 
 def index(request):
-    return HttpResponse("Hello, world. You're at the musicdb index.")
+    return render(request, 'index.html')
 
 def user_create(request):
     if request.method == 'POST':
@@ -18,7 +18,7 @@ def user_create(request):
     return render(request, 'user_create.html', {'form': form})
 
 def login(request):
-    return HttpResponse("LOGIN PAGE")
+    return render(request, 'index.html')
 
 
 def retrieve_ratings(request):
