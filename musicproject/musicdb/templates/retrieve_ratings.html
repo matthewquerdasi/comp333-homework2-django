@@ -1,12 +1,13 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
 <h1>Retrieve Ratings</h1>
 <form action="{% url 'retrieve_ratings' %}" method="get">
     {% csrf_token %}
     {{ form.as_p }}
-    <button class = "button" type = "submit">Retrieve</button>
+    <button class = "btn btn-success" type ="">Retrieve</button>
 </form>
-
-
-
 
 
 <div>
@@ -21,6 +22,6 @@
 </ul>
 {% else %}
 No entries 
-
 {% endif %}
 <div>
+{% endblock %}

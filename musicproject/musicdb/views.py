@@ -12,13 +12,10 @@ def user_create(request):
         form = UserForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('login')
+            return redirect('user_create')
     else:
         form = UserForm()
     return render(request, 'user_create.html', {'form': form})
-
-def login(request):
-    return render(request, 'index.html')
 
 
 def retrieve_ratings(request):
