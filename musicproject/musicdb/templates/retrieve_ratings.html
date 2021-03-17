@@ -2,7 +2,7 @@
 
 
 {% block content %}
-<h1>Retrieve Ratings</h1>
+<h2>Retrieve Ratings</h2>
 <form action="{% url 'retrieve_ratings' %}" method="get">
     {% csrf_token %}
     {{ form.as_p }}
@@ -10,11 +10,13 @@
 </form>
 
 
-<div>
+<div class="mt-3">
+<h3>Results:</h3>
+
 {% if ratings %}
-<ul>
+<ul class="list-group">
     {% for rating in ratings %}
-    <li>
+    <li class="list-group-item">
         {{ rating.song.song }}, by {{ rating.song.artist }} --> {{ rating.rating }}
     </li>
     {% endfor %}
@@ -23,5 +25,5 @@
 {% else %}
 No entries 
 {% endif %}
-<div>
+</div>
 {% endblock %}
