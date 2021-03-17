@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+<h1>Retrieve Years</h1>
+<form action="{% url 'retrieve_years' %}" method="get">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button class = "btn btn-success" type ="">Retrieve</button>
+</form>
+
+
+<div>
+{% if years %}
+<ul>
+    {% for year in years %}
+    <li>
+        {{ year.song.song }}, came out while {{ year.president }} was president in {{ year.year }}
+    </li>
+    {% endfor %}
+
+</ul>
+{% else %}
+No entries 
+{% endif %}
+<div>
+{% endblock %}
