@@ -2,7 +2,7 @@
 
 
 {% block content %}
-<h1>Retrieve Years</h1>
+<h1>Retrieve By Year</h1>
 <form action="{% url 'retrieve_years' %}" method="get">
     {% csrf_token %}
     {{ form.as_p }}
@@ -11,11 +11,11 @@
 
 
 <div>
-{% if years %}
+{% if year %}
 <ul>
-    {% for year in years %}
+    {% for y in year %}
     <li>
-        {{ year.song.song }}, came out while {{ year.president }} was president in {{ year.year }}
+        {{ y.song.song }} came out while {{ y.president }} was president
     </li>
     {% endfor %}
 

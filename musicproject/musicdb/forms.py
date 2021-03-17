@@ -1,6 +1,6 @@
 from django.forms import ModelForm, CharField
 from django import forms
-from .models import Users, Ratings
+from .models import Users, Ratings, Years
 
 
 class UserForm(ModelForm):
@@ -11,5 +11,8 @@ class UserForm(ModelForm):
 
 class RetrieveRatingsForm(forms.Form):
     username = forms.CharField()
+
+class RetrieveByYearForm(forms.Form):
+    year = forms.IntegerField()
 
 
