@@ -22,4 +22,11 @@ class Ratings(models.Model):
     def __str__(self):
         return_string = str(self.song) + " - " + str(self.username)
         return return_string
-    
+
+class Years(models.Model):
+    year = models.IntegerField(default = 2000)
+    song = models.ForeignKey(Songs, on_delete=models.CASCADE)
+    president = models.CharField(max_length=50)
+
+    def __str__(self):
+        return str(self.year) + " - " + str(self.president) + " - " + str(self.song)

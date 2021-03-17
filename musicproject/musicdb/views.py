@@ -1,8 +1,8 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.template import loader
-from musicdb.forms import UserForm, RetrieveRatingsForm
-from musicdb.models import Users, Ratings
+from musicdb.forms import UserForm, RetrieveRatingsForm, RetrieveByYearForm
+from musicdb.models import Users, Ratings, Years
 
 def index(request):
     return render(request, 'index.html')
@@ -27,5 +27,14 @@ def retrieve_ratings(request):
             ratings = Ratings.objects.filter(username=form.cleaned_data.get('username'))
             
     return render(request, 'retrieve_ratings.html', {'form': form, 'ratings': ratings})
+
+def retrieve_years(request):
+    form = RetrieveByYearForm(request.GET or None)
+    year = None
+    if request.method == 'GET':
+        if form.is_valid():
+            year = Years.objects.filter(year=form.cleaned_data.get('year'))
+
+    return render(request, 'retrieve_years.html', {'form': form, 'year': year})
 
 
