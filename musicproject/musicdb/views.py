@@ -3,6 +3,12 @@ from django.http import HttpResponse
 from django.template import loader
 from musicdb.forms import UserForm, RetrieveRatingsForm, RetrieveByYearForm
 from musicdb.models import Users, Ratings, Years
+from rest_framework import viewsets
+from .serializers import TodoSerializer
+
+class UserView (viewsets.ModelViewSet):
+    serializer_class = UserSerializer
+    queryset = Users.objects.all()
 
 def index(request):
     return render(request, 'index.html')
