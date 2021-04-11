@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Todo
+from .models import Users, Songs, Ratings, Years
 
 # The serializer translates a Todo object into a format that
 # can be stored in our database. We use the Todo model.

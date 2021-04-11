@@ -4,7 +4,7 @@ from django.template import loader
 from musicdb.forms import UserForm, RetrieveRatingsForm, RetrieveByYearForm
 from musicdb.models import Users, Ratings, Years
 from rest_framework import viewsets
-from .serializers import TodoSerializer
+from musicdb.serializers import UserSerializer
 
 class UserView (viewsets.ModelViewSet):
     serializer_class = UserSerializer
