@@ -1,8 +1,8 @@
 from rest_framework import serializers
 from .models import Users, Songs, Ratings, Years
 
-# The serializer translates a Todo object into a format that
-# can be stored in our database. We use the Todo model.
+# The serializer translates an object into a format that
+# can be stored in our database. We use one for each model.
 class UserSerializer(serializers.ModelSerializer):
   class Meta:
     model = Users
