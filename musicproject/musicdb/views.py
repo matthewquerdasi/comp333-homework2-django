@@ -2,7 +2,25 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.template import loader
 from musicdb.forms import UserForm, RetrieveRatingsForm, RetrieveByYearForm
-from musicdb.models import Users, Ratings, Years
+from musicdb.models import Users, Ratings, Years, Songs
+from rest_framework import viewsets
+from musicdb.serializers import UserSerializer, SongSerializer, RatingSerializer, YearSerializer
+
+class UserView (viewsets.ModelViewSet):
+    serializer_class = UserSerializer
+    queryset = Users.objects.all()
+
+class SongView (viewsets.ModelViewSet):
+    serializer_class = SongSerializer
+    queryset = Songs.objects.all()
+
+class RatingView (viewsets.ModelViewSet):
+    serializer_class = RatingSerializer
+    queryset = Ratings.objects.all()
+
+class YearView (viewsets.ModelViewSet):
+    serializer_class = YearSerializer
+    queryset = Years.objects.all()
 
 def index(request):
     return render(request, 'index.html')

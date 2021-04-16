@@ -1,6 +1,7 @@
-from django.urls import path
+from django.urls import path, include
 from . import views
-from musicdb.views import index, user_create, retrieve_ratings, retrieve_years
+from musicdb.views import index, user_create, retrieve_ratings, retrieve_years, UserView
+
 
 urlpatterns = [
     path('', index, name='index'),
