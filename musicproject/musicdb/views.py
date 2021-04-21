@@ -4,6 +4,8 @@ from django.template import loader
 from musicdb.forms import UserForm, RetrieveRatingsForm, RetrieveByYearForm
 from musicdb.models import Users, Ratings, Years, Songs
 from rest_framework import viewsets
+from rest_framework.response import Response
+from rest_framework.decorators import action
 from musicdb.serializers import UserSerializer, SongSerializer, RatingSerializer, YearSerializer
 
 
@@ -11,6 +13,7 @@ class UserView (viewsets.ModelViewSet):
     serializer_class = UserSerializer
     queryset = Users.objects.all()
 
+<<<<<<< HEAD
 
 class SongView (viewsets.ModelViewSet):
     serializer_class = SongSerializer
@@ -19,6 +22,35 @@ class SongView (viewsets.ModelViewSet):
     def put(self, request, *args, **kwargs):
         return(self.update(request, *args, **kwargs))
 
+=======
+class SongView(viewsets.ModelViewSet):
+    serializer_class = SongSerializer
+    queryset = Songs.objects.all()
+
+    @action(detail=True)
+    def songs_by_artist(self, request, pk=None):
+      artist_songs = Songs.objects.filter(artist=pk)
+      page = self.paginate_queryset(artist_songs)
+
+      if page is not None:
+          serializer = self.get_serializer(page, many=True)
+          return self.get_paginated_response(serializer.data)
+
+      serializer = self.get_serializer(artist_songs, many=True)
+      return Response(serializer.data)
+
+    @action(detail=True)
+    def songs_by_title(self, request, pk=None):
+      title_songs = Songs.objects.filter(song=pk)
+      page = self.paginate_queryset(title_songs)
+
+      if page is not None:
+          serializer = self.get_serializer(page, many=True)
+          return self.get_paginated_response(serializer.data)
+
+      serializer = self.get_serializer(title_songs, many=True)
+      return Response(serializer.data)
+>>>>>>> d8c942ef6b66251e208da4abdb0e7edb0352fe9c
 
 class RatingView (viewsets.ModelViewSet):
     serializer_class = RatingSerializer
