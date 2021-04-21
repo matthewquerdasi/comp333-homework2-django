@@ -14,6 +14,9 @@ class SongView (viewsets.ModelViewSet):
     serializer_class = SongSerializer
     queryset = Songs.objects.all()
 
+    def put(self, request, *args, **kwargs):
+        return(self.update(request, *args, **kwargs))
+
 class RatingView (viewsets.ModelViewSet):
     serializer_class = RatingSerializer
     queryset = Ratings.objects.all()
