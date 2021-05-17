@@ -18,6 +18,30 @@ class SongView (viewsets.ModelViewSet):
     serializer_class = SongSerializer
     queryset = Songs.objects.all()
 
+    @action(detail=True)
+    def songs_by_artist(self, request, pk=None):
+      artist_songs = Songs.objects.filter(artist=pk)
+      page = self.paginate_queryset(artist_songs)
+
+      if page is not None:
+          serializer = self.get_serializer(page, many=True)
+          return self.get_paginated_response(serializer.data)
+
+      serializer = self.get_serializer(artist_songs, many=True)
+      return Response(serializer.data)
+
+    @action(detail=True)
+    def songs_by_title(self, request, pk=None):
+      title_songs = Songs.objects.filter(song=pk)
+      page = self.paginate_queryset(title_songs)
+
+      if page is not None:
+          serializer = self.get_serializer(page, many=True)
+          return self.get_paginated_response(serializer.data)
+
+      serializer = self.get_serializer(title_songs, many=True)
+      return Response(serializer.data)
+
     def put(self, request, *args, **kwargs):
         return(self.update(request, *args, **kwargs))
 
