@@ -15,12 +15,13 @@ class Songs(models.Model):
         return self.song
 
 class Ratings(models.Model):
+    id = models.AutoField(primary_key=True)
     username = models.ForeignKey(Users, on_delete=models.CASCADE)
     song = models.ForeignKey(Songs, on_delete=models.CASCADE)
     rating = models.IntegerField(default=0)
 
     def __str__(self):
-        return_string = str(self.song) + " - " + str(self.username)
+        return_string = str(self.id) + " - " + str(self.song) + " - " + str(self.username)
         return return_string
 
 class Years(models.Model):
