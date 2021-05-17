@@ -13,16 +13,6 @@ class UserView (viewsets.ModelViewSet):
     serializer_class = UserSerializer
     queryset = Users.objects.all()
 
-<<<<<<< HEAD
-
-class SongView (viewsets.ModelViewSet):
-    serializer_class = SongSerializer
-    queryset = Songs.objects.all()
-
-    def put(self, request, *args, **kwargs):
-        return(self.update(request, *args, **kwargs))
-
-=======
 class SongView(viewsets.ModelViewSet):
     serializer_class = SongSerializer
     queryset = Songs.objects.all()
@@ -50,7 +40,6 @@ class SongView(viewsets.ModelViewSet):
 
       serializer = self.get_serializer(title_songs, many=True)
       return Response(serializer.data)
->>>>>>> d8c942ef6b66251e208da4abdb0e7edb0352fe9c
 
 class RatingView (viewsets.ModelViewSet):
     serializer_class = RatingSerializer
