@@ -127,4 +127,9 @@ STATIC_URL = '/static/'
 CORS_ALLOWED_ORIGINS = [
     'http://localhost:3000',
     'https://localhost:3000',
+    'http://localhost:19006',
+    'https://localhost:19006',
+    'http://localhost:19002',
+    'https://localhost:19002',
+    'https://localhost:8000'
 ]
