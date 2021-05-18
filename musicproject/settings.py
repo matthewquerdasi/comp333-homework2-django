@@ -144,5 +144,7 @@ CORS_ALLOWED_ORIGINS = [
     'https://localhost:19006',
     'http://localhost:19002',
     'https://localhost:19002',
-    'https://localhost:8000'
+    'https://localhost:8000',
+    'https://console.firebase.google.com/project/comp333-react/overview',
+    'https://comp333-react.web.app'
 ]
