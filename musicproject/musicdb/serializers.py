@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Users, Songs, Ratings, Years
+from .models import Users, Songs, Years, Ratings
 
 # The serializer translates an object into a format that
 # can be stored in our database. We use one for each model.

@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.urls import include, path
-from musicdb.views import user_create, UserView, SongView, RatingView, YearView
+from musicdb.views import user_create, UserView, SongView, YearView, RatingView
 from rest_framework import routers 
 
 router = routers.DefaultRouter()

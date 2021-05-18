@@ -23,7 +23,7 @@ class Ratings(models.Model):
     rating = models.IntegerField(default=0)
 
     def __str__(self):
-        return_string = str(self.id) + " - " + str(self.song) + " - " + str(self.username)
+        return_string = str(self.song) + " - " + str(self.username)
         return return_string
 
 
