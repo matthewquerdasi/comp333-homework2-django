@@ -18,11 +18,9 @@ class Songs(models.Model):
 
 
 class Ratings(models.Model):
-    id = models.AutoField(primary_key=True)
     username = models.ForeignKey(Users, on_delete=models.CASCADE)
     song = models.ForeignKey(Songs, on_delete=models.CASCADE)
     rating = models.IntegerField(default=0)
-    my_id = models.AutoField(primary_key=True, editable=True)
 
     def __str__(self):
         return_string = str(self.id) + " - " + str(self.song) + " - " + str(self.username)
