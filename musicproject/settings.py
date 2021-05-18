@@ -25,7 +25,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = config("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['comp333-musicdb.herokuapp.com', 'localhost', '127.0.0.1']
 
@@ -75,7 +75,8 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'musicproject.wsgi.application'
+# used for heroku
+# WSGI_APPLICATION = 'musicproject.wsgi.application'
 
 
 # Database
@@ -145,6 +146,5 @@ CORS_ALLOWED_ORIGINS = [
     'http://localhost:19002',
     'https://localhost:19002',
     'https://localhost:8000',
-    'https://console.firebase.google.com/project/comp333-react/overview',
     'https://comp333-react.web.app'
 ]
